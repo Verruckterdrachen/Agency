@@ -121,3 +121,24 @@ let slider_about = new Swiper('.about__slider', {
 	//	el: '.swiper-scrollbar',
 	//},
 });
+
+if (document.querySelector('.slider-hero__body')) {
+	let heroSlider = new Swiper('.slider-hero__body', {
+		slidesPerView: 1,
+		slidesPerGroup: 1,
+		spaceBetween: 120,
+		watchOverflow: true,
+		loop: true,
+		autoplay: {
+			delay: 2000,
+			disableOnInteraction: false,
+		},
+		speed: 1000,
+		pagination: {
+			el: '.slider-hero__bullets',
+			bulletClass: 'slider-hero__bullet',
+			bulletActiveClass: 'slider-hero__bullet_active',
+			clickable: true,
+		},
+	});
+}

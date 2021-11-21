@@ -85,9 +85,116 @@ body {
 
 //<ОСНОВНОЙ БЛОК>====================================================================================================
 .page {
-	line-height: 4;
 	flex: 1 1 auto;
+	// .page__hero
+	&__hero {
+	}
 }
 //===================================================================================================================================
-
+.hero {
+	position: relative;
+	display: flex;
+	min-height: 100vh;
+	background: url("../img/hero/bg.jpg") center / cover no-repeat;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(#000, 0.75);
+	}
+	// .hero__container
+	&__container {
+		max-width: 100%;
+		box-sizing: border-box;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex: 1 1 auto;
+	}
+}
+.slider-hero {
+	z-index: 5;
+	min-width: 0;
+	padding: 80px 0;
+	// .slider-hero__slide
+	&__slide {
+		text-align: center;
+	}
+	// .slider-hero__title
+	&__title {
+		letter-spacing: math.div(4, 72) * 1em;
+		font-weight: 700;
+		color: #fff;
+		text-transform: uppercase;
+		@include adaptiv-value("font-size", 72, 42, 1);
+		line-height: math.div(100, 72) * 100%;
+		margin: 0 0 math.div(24, 72) * 1em 0;
+	}
+	// .slider-hero__text
+	&__text {
+		font-weight: 300;
+		font-size: 20px;
+		line-height: math.div(23, 20) * 100%;
+		margin: 0 0 math.div(15, 20) * 1em 0;
+		letter-spacing: math.div(1.5, 20) * 1em;
+		color: rgba(#fff, 0.8);
+		font-family: $fontFamilyPrimary;
+	}
+	// .slider-hero__bullets
+	&__bullets {
+		position: absolute;
+		bottom: 25px;
+		left: 50%;
+		transform: translateX(-50%);
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		counter-reset: item;
+		min-height: 36px;
+	}
+	// .slider-hero__bullet
+	&__bullet {
+		counter-increment: item;
+		position: relative;
+		cursor: pointer;
+		&:not(:last-child) {
+			margin: 0 12px 0 0;
+		}
+		&::before {
+			font-weight: 700;
+			content: counter(item, decimal-leading-zero);
+			font-size: 18px;
+			color: rgba(#fff, 0.43);
+			letter-spacing: 0.1em;
+			transition: color 0.3s, font-size 0.3s;
+		}
+		&_active {
+			&::before {
+				font-size: 36px;
+				color: #fff;
+			}
+			&::after {
+				z-index: -1;
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 100%;
+				height: 2px;
+				background-color: $accentColor;
+			}
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				&::before {
+					color: #fff;
+				}
+			}
+		}
+	}
+}
 //</ОСНОВНОЙ БЛОК>====================================================================================================

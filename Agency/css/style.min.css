@@ -788,6 +788,16 @@ body.ie {
     min-height: 60px;
   }
 }
+@media (max-height: 767.98px) {
+  .header__body {
+    min-height: 80px;
+  }
+}
+@media (max-height: 479.98px) {
+  .header__body {
+    min-height: 60px;
+  }
+}
 
 @media (max-width: 767.98px) {
   .menu__body {
@@ -1007,6 +1017,107 @@ body.ie {
 }
 
 .page {
-  line-height: 4;
   flex: 1 1 auto;
+}
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  background: url("../img/hero/bg.jpg") center/cover no-repeat;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.hero__container {
+  max-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+.slider-hero {
+  z-index: 5;
+  min-width: 0;
+  padding: 80px 0;
+}
+.slider-hero__slide {
+  text-align: center;
+}
+.slider-hero__title {
+  letter-spacing: 0.0555555556em;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 72px;
+  line-height: 138.8888888889%;
+  margin: 0 0 0.3333333333em 0;
+}
+@media (max-width: 1170px) {
+  .slider-hero__title {
+    font-size: calc(42px + 30 * ((100vw - 320px) / 850));
+  }
+}
+.slider-hero__text {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 115%;
+  margin: 0 0 0.75em 0;
+  letter-spacing: 0.075em;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Open Sans";
+}
+.slider-hero__bullets {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  counter-reset: item;
+  min-height: 36px;
+}
+.slider-hero__bullet {
+  counter-increment: item;
+  position: relative;
+  cursor: pointer;
+}
+.slider-hero__bullet:not(:last-child) {
+  margin: 0 12px 0 0;
+}
+.slider-hero__bullet::before {
+  font-weight: 700;
+  content: counter(item, decimal-leading-zero);
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.43);
+  letter-spacing: 0.1em;
+  transition: color 0.3s, font-size 0.3s;
+}
+.slider-hero__bullet_active::before {
+  font-size: 36px;
+  color: #fff;
+}
+.slider-hero__bullet_active::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 2px;
+  background-color: #4caf50;
+}
+@media (any-hover: hover) {
+  .slider-hero__bullet:hover::before {
+    color: #fff;
+  }
 }
