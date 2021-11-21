@@ -1,3 +1,65 @@
 //====================================================================================================
-
+.footer {
+	color: rgba(#fff, 0.5);
+	font-weight: 300;
+	letter-spacing: math.div(0.83, 13) * 1em;
+	// .footer__top
+	&__top {
+		text-align: center;
+		@include adaptiv-value("padding-top", 142, 30, 1);
+		@include adaptiv-value("padding-bottom", 82, 30, 1);
+		background-color: #2e2e2e;
+	}
+	// .footer__text
+	&__text {
+		line-height: math.div(19, 13) * 100%;
+		&:not(:last-child) {
+			margin: 0 0 20px 0;
+		}
+		a {
+			color: inherit;
+			transition: color 0.3s;
+			@media (any-hover: hover) {
+				&:hover {
+					color: $accentColor;
+				}
+			}
+			@media (any-hover: none) {
+				color: $accentColor;
+			}
+		}
+	}
+	// .footer__socials
+	&__socials {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		@include adaptiv-value("margin-top", 40, 20, 1);
+	}
+	// .footer__icon
+	&__icon {
+		font-size: 32px;
+		color: inherit;
+		transition: color 0.3s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: #fff;
+			}
+		}
+		&:not(:last-child) {
+			margin: 0 20px 0 0;
+		}
+	}
+	// .footer__bottom
+	&__bottom {
+		padding: 20px 0;
+		text-align: center;
+		background-color: #252525;
+	}
+	// .footer__copy
+	&__copy {
+		line-height: math.div(19, 13) * 100%;
+	}
+}
 //====================================================================================================
