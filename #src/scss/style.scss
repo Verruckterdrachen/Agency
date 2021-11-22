@@ -101,6 +101,9 @@ body {
 	// .page__team
 	&__team {
 	}
+	// .page__testimonials
+	&__testimonials {
+	}
 }
 //===================================================================================================================================
 .hero {
@@ -862,6 +865,114 @@ body {
 		line-height: math.div(25, 12) * 100%;
 		margin: 0 0 math.div(10, 12) * 1em 0;
 		letter-spacing: math.div(1, 12) * 1em;
+	}
+}
+//====================================================================================================
+.testimonials {
+	@include adaptiv-value("padding-top", 118, 30, 1);
+	@include adaptiv-value("padding-bottom", 118, 30, 1);
+}
+.slider-testimonials {
+	position: relative;
+	// .slider-testimonials__slide
+	&__slide {
+		text-align: center;
+	}
+	// .slider-testimonials__text
+	&__text {
+		font-weight: 300;
+		font-family: $fontFamilyPrimary;
+		color: #373737;
+		max-width: 749px;
+		font-size: 14px;
+		line-height: math.div(31, 14) * 100%;
+		margin: 0 auto math.div(30, 14) * 1em auto;
+		letter-spacing: math.div(1, 14) * 1em;
+		&::after {
+			content: "";
+			display: block;
+			width: 20px;
+			height: 20px;
+			margin: 20px auto 0 auto;
+			background: url("../img/testimonials/quote.png") no-repeat;
+		}
+	}
+	// .slider-testimonials__title
+	&__title {
+		font-weight: 300;
+		color: #b8b8b8;
+		@include adaptiv-value("margin-bottom", 25, 10, 1);
+		span {
+			font-weight: 400;
+			color: #373737;
+			text-transform: uppercase;
+			font-size: 18px;
+			line-height: math.div(26, 18) * 100%;
+			letter-spacing: math.div(1, 18) * 1em;
+		}
+		.separator {
+			color: #b8b8b8;
+			margin: 0 2px 0 5px;
+		}
+	}
+	// .slider-testimonials__rate
+	&__rate {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include adaptiv-value("padding-bottom", 30, 10, 1);
+		@media (min-width: $md3+px) {
+			position: relative;
+			&::after {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				width: 511px;
+				height: 1px;
+				transform: translateX(-50%);
+				background-color: #d8d8d8;
+			}
+		}
+	}
+	// .slider-testimonials__star
+	&__star {
+		opacity: 0.6;
+		font-size: 15px;
+		&:not(:last-child) {
+			margin: 0 9px 0 0;
+		}
+		&:last-child {
+			opacity: 0.2;
+		}
+	}
+	// .slider-testimonials__arrows
+	&__arrows {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+.slider-arrow {
+	color: #808080;
+	font-size: 20px;
+	cursor: pointer;
+	pointer-events: auto;
+	transition: color 0.3s;
+	@media (any-hover: hover) {
+		&:hover {
+			color: $mainColor;
+		}
+	}
+	// .slider-arrow_next
+	&_prev {
+		&::before {
+			transform: rotate(-180deg);
+		}
 	}
 }
 //</ОСНОВНОЙ БЛОК>====================================================================================================
