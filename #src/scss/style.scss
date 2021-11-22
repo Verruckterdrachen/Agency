@@ -104,6 +104,9 @@ body {
 	// .page__testimonials
 	&__testimonials {
 	}
+	// .page__get-started
+	&__get-started {
+	}
 }
 //===================================================================================================================================
 .hero {
@@ -973,6 +976,58 @@ body {
 		&::before {
 			transform: rotate(-180deg);
 		}
+	}
+}
+//====================================================================================================
+.get-started {
+	// .get-started__container
+	&__container {
+		@media (min-width: $md3+px) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	// .get-started__item
+	&__item {
+		text-align: center;
+		@include adaptiv-value("padding-top", 72, 30, 1);
+		@include adaptiv-value("padding-bottom", 100, 30, 1);
+		// .get-started__item_white
+		&_white {
+			color: #373737;
+			background-color: #fbfbfb;
+			--icon: url("../img/get-started/01.png");
+		}
+		// .get-started__item_green
+		&_green {
+			color: #fff;
+			background-color: #70bd59;
+			--icon: url("../img/get-started/02.png");
+		}
+	}
+	// .get-started__title
+	&__title {
+		font-size: 24px;
+		line-height: math.div(25, 24) * 100%;
+		margin: 0 0 math.div(22, 24) * 1em 0;
+		letter-spacing: math.div(2.6, 24) * 1em;
+		&::before {
+			display: block;
+			width: 35px;
+			height: 35px;
+			margin: 0 auto 20px auto;
+			content: "";
+			background: var(--icon) no-repeat;
+		}
+	}
+	// .get-started__text
+	&__text {
+		font-weight: 300;
+		opacity: 0.8;
+		font-family: $fontFamilyPrimary;
+		font-size: 14px;
+		line-height: math.div(16, 14) * 100%;
+		letter-spacing: math.div(1.5, 14) * 1em;
 	}
 }
 //</ОСНОВНОЙ БЛОК>====================================================================================================
